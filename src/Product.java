@@ -1,19 +1,23 @@
-package by.gsu.pms;
+package gsu;
 
 public class Product {
 
     private String name;
     private boolean availability;
-    private float price;
+    private double price;
 
-    public Product(String name, boolean availability, float price) {
+    public Product() {
+        this("", false, 0.00);
+    }
+
+    public Product(String name, boolean availability, double price) {
         super();
         this.name = name;
         this.availability = availability;
         this.price = price;
     }
 
-    public Product(String name, float price) {
+    public Product(String name, double price) {
         this.name = name;
         this.availability = false;
         this.price = price;
@@ -28,19 +32,19 @@ public class Product {
         this.name = name;
     }
 
-    public boolean isAvailability() {
+    public boolean isAvailable() {
         return availability;
     }
 
-    public void setAvailability(boolean availability) {
+    public void setAvailable(boolean availability) {
         this.availability = availability;
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
