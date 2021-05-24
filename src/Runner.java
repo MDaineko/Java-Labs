@@ -1,58 +1,38 @@
-package by.gsu.pms;
+package gsu;
 
 public class Runner {
     public static void main(String[] args) {
 
-        Product[] products = {
-                new Product("Chocolate bar", 1.49, true),
-                new Product("Bubblegum", 1.09, false),
+        Product[] products = new Product[]{
+                new Product("Chocolate bar", true, 1.49),
+                new Product("Bubblegum", false, 1.09),
                 null,
-                new Product("Bottle of milk", 1.25, true),
-                new Product("Packet of biscuits", 2.50, true),
-                new Product("Coke", 1.89, false),
-                new Product("Bread", 0.99, true),
-                new Product("Baguette", 1.30, true),
-                new Product("", 2000, true),
+                new Product("Bottle of milk", true, 1.25),
+                new Product("Packet of biscuits", true, 2.49),
+                new Product("Coke", false, 1.89),
+                new Product("Bread", true, 0.99),
+                new Product("Baguette", true, 1.35),
+                new Product("Butter", true, 2.25),
                 new Product(),
         };
 
+        double totalPrice = 0;
+        int availableProducts = 0;
+
         for (Product product : products) {
             if (product != null) {
-                System.out.println();
+                totalPrice += product.getPrice();
+                if (product.isAvailable()) {
+                    availableProducts += 1;
+                }
             }
         }
 
-        int totalExpenses = 0;
-        int maxTotal = 0;
+        System.out.println("Total price of products = " + totalPrice);
+        System.out.println("Products available = " + availableProducts);
 
-        products[products.length - 1].setTransport(3000);
-        System.out.println(products[products.length - 1]);
-
-        System.out.println("Duration = " + (products[0].getDays() + products[1].getDays()));
-
-        for (BusinessTrip employee: products) {
-            if(employee != null){
-                System.out.println(employee.toString());
-            }
+        for (Product product : products) {
+            System.out.println(product);
         }
-
-
-
-        for (BusinessTrip employee : employees) {
-            if (employee != null) {
-                totalExpenses += employee.getTotal();
-            }
-        }
-        System.out.println("Total expenses = " + totalExpenses);
-
-
-
-        for (BusinessTrip employee : employees) {
-            if (employee != null && employee.getTotal() > maxTotal) {
-                maxTotal = employee.getTotal();
-            }
-        }
-        System.out.println("Maximum total = " + maxTotal);
     }
 }
-
